@@ -1,0 +1,225 @@
+---
+title: "Summary"
+format:
+  html:
+    code-link: true
+editor: visual
+toc: false
+page-layout: full
+---
+
+
+```{ojs}
+//| echo: false
+
+funkyheatmap = (await require('d3@7').then(d3 => {
+
+  window.d3 = d3;
+
+  window._ = _;
+
+  return import('https://unpkg.com/funkyheatmapjs@0.2.5');
+
+})).default;
+
+```
+
+
+```{r setup}
+#| label: load-packages
+#| include: false
+#| error: true
+#| echo: false
+
+library(tidyverse)
+library(funkyheatmap)
+library(kableExtra)
+library(readr)
+library(DT)
+library(plotly)
+library(jsonlite)
+``` 
+
+
+
+```{ojs}
+//| label: read data
+//| warning: false
+//| echo: false
+
+//color_by_rank = Inputs.toggle({label: "Color by rank:", value: true})
+//scale_column = Inputs.toggle({label: "Minmax column:", value: false})
+//show_con = Inputs.toggle({label: "Show control methods:", value: true})
+
+final_data = FileAttachment("./data/final_data2.csv").csv()
+column_info = await FileAttachment("./data/column_info.csv").csv()
+column_groups = await FileAttachment("./data/column_groups.JSON").json()
+
+/* console.log(final_data)
+console.log(column_info)
+console.log(column_groups) */
+
+p1 = ["#6ABAC4,#6BBAC4,#6DBBC5,#6EBCC5,#70BCC6,#71BDC6,#73BEC7,#74BEC8,#76BFC8,#77C0C9,#79C0C9,#7AC1CA,#7CC2CB,#7DC3CB,#7FC3CC,#80C4CC,#82C5CD,#83C5CE,#85C6CE,#86C7CF,#88C7CF,#89C8D0,#8BC9D1,#8CCAD1,#8ECAD2,#8FCBD2,#91CCD3,#92CCD4,#94CDD4,#95CED5,#97CED5,#98CFD6,#9AD0D7,#9BD1D7,#9DD1D8,#9ED2D8,#A0D3D9,#A1D3DA,#A3D4DA,#A4D5DB,#A6D5DB,#A7D6DC,#A9D7DD,#AAD7DD,#ACD8DE,#ADD9DE,#AFDADF,#B0DAE0,#B2DBE0,#B3DCE1,#B5DCE1,#B6DDE2,#B8DEE2,#B9DEE3,#BBDFE4,#BCE0E4,#BEE1E5,#BFE1E5,#C1E2E6,#C2E3E7,#C4E3E7,#C5E4E8,#C7E5E8,#C8E5E9,#CAE6EA,#CBE7EA,#CDE8EB,#CEE8EB,#D0E9EC,#D1EAED,#D3EAED,#D4EBEE,#D6ECEE,#D7ECEF,#D9EDF0,#DAEEF0,#DCEEF1,#DDEFF1,#DFF0F2,#E0F1F3,#E2F1F3,#E3F2F4,#E5F3F4,#E6F3F5,#E8F4F6,#E9F5F6,#EBF5F7,#ECF6F7,#EEF7F8,#EFF8F9,#F1F8F9,#F2F9FA,#F4FAFA,#F5FAFB,#F7FBFC,#F8FCFC,#FAFCFD,#FBFDFD,#FDFEFE,#FFFFFF"]
+
+palettes = [
+    {
+        overall: "Greys",
+        palette1: "Blues",
+        palette2: "Reds",
+        palette3: "Greens",
+        palette4: "YlOrBr",
+        NA: "Greys",
+        white6black4: "Greys",
+        error_reason: {
+          colors: ["#8DD3C7", "#FFFFB3", "#BEBADA", "#FFFFFF"],
+          names: ["Memory limit exceeded", "Time limit exceeded", "Execution error", "No error"]
+        }
+      }
+    ][0]     
+
+/* poss_method_ids = method_info
+  .map(d => d.method)
+  .filter(d => results.map(r => r.method).includes(d))
+poss_metric_ids = metric_info
+  .map(d => d.metric)
+  .filter(d => results.map(r => Object.keys(r.scaled_scores)).flat().includes(d))     */
+```
+
+```{ojs}
+//| echo: false
+
+
+function removeLastNColumns(data, n) {
+  if (data.length === 0 || n <= 0) return data;
+
+  // Extract the keys of the columns
+  const keys = Object.keys(data[0]);
+
+  // Determine the columns to keep
+  const columnsToKeep = keys.slice(0, -n);
+
+  // Filter columns for each row
+  return data.map(row => {
+    const newRow = {};
+    columnsToKeep.forEach(key => {
+      newRow[key] = row[key];
+    });
+    return newRow;
+  });
+}
+
+// Remove the last 4 columns from the data
+filteredData = removeLastNColumns(final_data, 6);
+
+function removeLastNItems(array, n) {
+  return array.slice(0, -n);
+}
+
+
+// Remove the last 4 items
+filteredColumnInfo = removeLastNItems(column_info, 12);
+
+filteredColumnGroups = removeLastNItems(column_groups, 2);
+
+console.log(filteredColumnGroups)
+
+
+```
+
+## Results - Heatmap
+
+```{ojs}
+//| echo: false
+
+function transpose_list_of_objects(list) {
+      return Object.fromEntries(Object.keys(list[0]).map(key => [key, list.map(d => d[key])]))
+    }
+
+funkyheatmap(
+      transpose_list_of_objects(filteredData),
+      transpose_list_of_objects(filteredColumnInfo),
+      [],
+      transpose_list_of_objects(filteredColumnGroups),
+      
+      [],
+      palettes,
+      {
+          fontSize: 14,
+          rowHeight: 26,
+          rootStyle: 'max-width: none',
+          colorByRank: true
+      }
+    );
+
+
+```
+
+
+
+<!-- ::: {.cell .panel-input .card .bg-light}
+
+<details>
+
+<summary>Filter methods</summary>
+
+```{ojs}
+//| echo: false
+
+viewof method_ids = Inputs.checkbox(
+  final_data.filter(item => item.method),
+  {
+    value: final_data.map(item => item.method),
+    label: "Methods:"
+  } 
+)
+
+```  
+
+</details>
+
+<details>
+
+<summary>Filter metrics</summary>
+
+```{ojs}
+//| echo: false
+
+viewof metric_ids = Inputs.checkbox(
+  Object.keys(final_data[0]),
+  {
+    label: "Metrics:"
+  }
+)
+```
+
+</details>
+::: -->
+
+## Results - Table
+```{r}
+#| echo: false
+#| warning: false
+
+library(tibble)
+library(dplyr)
+
+final_data_csv <- read_csv("./data/final_data.csv", show_col_types = FALSE)
+
+final_data_csv$...1 <- NULL
+
+datatable(
+  final_data_csv,
+  options = list(
+    pageLength = 15,
+    scrollX = TRUE,
+    searching = TRUE,
+    autoWidth = TRUE
+    
+  ),
+  filter = "top",
+  class = 'stripe compact',
+  style = 'bootstrap'
+) %>%
+  formatRound(columns = which(sapply(final_data_csv, is.numeric)), digits = 2)
+```
+

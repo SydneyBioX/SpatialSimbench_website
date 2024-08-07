@@ -1,0 +1,12 @@
+Experiment,Category,group,palette
+Method,-,method,overall
+Summary,Rank-based overall,summary,overall
+Data proporties,Spot-level,data_pro_spot,palette1
+Data proporties,Gene-level,data_pro_gene,palette1
+Data proporties,Spatial-level,data_pro_spatial,palette1
+Spatial task,Cluster,spatial_task_clustering,palette2
+Spatial task,SVG,spatial_task_svg,palette2
+Spatial task,Deconvolute,spatial_task_den,palette2
+Spatial task,Crosscorrelate,spatial_task_cor,palette2
+Scalability,Predicted time,scalability_time,palette3
+Scalability,Predicted memory,scalability_memory,palette3
