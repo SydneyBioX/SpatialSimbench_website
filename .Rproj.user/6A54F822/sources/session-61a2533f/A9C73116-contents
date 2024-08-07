@@ -1,0 +1,17 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.quarto_layout_panel {
+  width: 90% !important;
+}
+
+main#quarto-document-content.content {
+  width: 100vw !important; 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}

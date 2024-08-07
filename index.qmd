@@ -1,0 +1,13 @@
+---
+title: "About"
+toc: false
+---
+
+# Multi-task benchmarking of spatially resolved gene expression simulation models
+
+**Abstract**
+
+Computational methods for spatially resolved transcriptomics (SRT) are frequently developed and assessed through data simulation. The effectiveness of these evaluations relies on the simulation methods’ ability to accurately reflect experimental data. However, a systematic evaluation framework for spatial simulators is lacking. Here, we present SpatialSimBench, a comprehensive evaluation framework that assesses 13 simulation methods using 10 distinct STR datasets. We introduce simAdaptor, a tool that extends single-cell simulators to incorporate spatial variables, thus enabling them to simulate spatial data. SimAdaptor enables SpatialSimBench to be “back-wards” compatible. That is, it facilitates direct comparison between spatially aware simulators and existing non-spatial single-cell simulators through the adaption. Through SpatialSimBench, we demonstrate the feasibility of leveraging existing single-cell simulators for SRT data and highlight performance differences among methods. Additionally, we evaluate the simulation methods based on a total of 35 metrics across data property estimation, various downstream analysis and scalability. In total, we generated 4550 results from 13 simulation methods, 10 spatial datasets and 35 metrics. Our findings reveal that model estimation can be impacted by distribution assumptions and dataset characteristics. In summary, our evaluation and the evaluation framework will provide guidelines for selecting appropriate methods for specific scenarios and informing future method development.
+
+[**Research paper link**](https://www.biorxiv.org/content/10.1101/2024.05.29.596418v1)
+
