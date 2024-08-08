@@ -14,10 +14,10 @@ website:
 
 format:
   html:
-    theme: simplex
+    page-layout: full
     css: styles.css
     toc: true
-
+    
 
 editor: visual
 

@@ -5,12 +5,20 @@ html, body {
   height: 100%;
 }
 
-.quarto_layout_panel {
-  width: 90% !important;
+body .page-columns {
+  display: inline !important;
+  align-items: center;
 }
 
-main#quarto-document-content.content {
-  width: 100vw !important; 
+main.column-page {
+  width: 90vw !important; 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
+
+main.column-page_left, main.column-page_right {
+  width: 5vw !important; 
   margin: 0; 
   padding: 0; 
   box-sizing: border-box; 

@@ -10,6 +10,16 @@
   text-align: center;
 }
 
+body .page-columns {
+    display: inline !important;
+}
+
+.level2 {
+    text-align: center !important;
+    margin: auto;  
+    padding: 40px;  
+}
+
 @media screen and (max-width: 575.98px) {
     .quarto-title-banner {
         height:325px
