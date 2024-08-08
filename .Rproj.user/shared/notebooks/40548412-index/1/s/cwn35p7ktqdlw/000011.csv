@@ -1,0 +1,40 @@
+"0","#| echo: false"
+"0",""
+"0","funky_heatmap("
+"0","        data = benchmark_data,"
+"0","        column_info = column_info,"
+"0","        column_groups = column_groups,"
+"0","        palettes = palettes,"
+"0","        scale_column = TRUE,"
+"0","        position_args = position_arguments(col_annot_offset = 3.2)"
+"0",")"
+"1","[36mℹ[39m No row info was provided, assuming all rows in `data` are to be plotted.
+"
+"1","[36mℹ[39m Row info did not contain group information, assuming rows are ungrouped.
+"
+"1","[36mℹ[39m No legends were provided, trying to automatically infer legends.
+"
+"1","[36mℹ[39m Some palettes were not used in the column info, adding legends for them.
+"
+"1","[36mℹ[39m Legend 1 did not contain a geom, inferring from the column info.
+"
+"1","[33m![39m Legend 1 has geom 'bar', which is not yet implemented. Disabling for now.
+"
+"1","[36mℹ[39m Legend 2 did not contain a geom, inferring from the column info.
+"
+"1","[33m![39m Legend 2 has geom 'bar', which is not yet implemented. Disabling for now.
+"
+"1","[36mℹ[39m Legend 3 did not contain a geom, inferring from the column info.
+"
+"1","[33m![39m Legend 3 has geom 'bar', which is not yet implemented. Disabling for now.
+"
+"1","[36mℹ[39m Legend 4 did not contain a geom, inferring from the column info.
+"
+"1","[33m![39m Legend 4 has geom 'bar', which is not yet implemented. Disabling for now.
+"
+"1","[36mℹ[39m Legend 5 did not contain a geom, inferring from the column info.
+"
+"1","[36mℹ[39m Legend 5 did not contain labels, inferring from the geom.
+"
+"1","[33m![39m Legend 5 has geom 'text' but no specified labels, so disabling this legend for now.
+"
