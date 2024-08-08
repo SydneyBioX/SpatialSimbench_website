@@ -101,7 +101,7 @@ function removeLastNColumns(data, n) {
 }
 
 // Remove the last 4 columns from the data
-filteredData = removeLastNColumns(final_data, 6);
+//filteredData = removeLastNColumns(final_data, 6);
 
 function removeLastNItems(array, n) {
   return array.slice(0, -n);
@@ -109,9 +109,9 @@ function removeLastNItems(array, n) {
 
 
 // Remove the last 4 items
-filteredColumnInfo = removeLastNItems(column_info, 12);
+//filteredColumnInfo = removeLastNItems(column_info, 12);
 
-filteredColumnGroups = removeLastNItems(column_groups, 2);
+//filteredColumnGroups = removeLastNItems(column_groups, 2);
 
 //console.log(filteredColumnGroups)
 
@@ -129,10 +129,10 @@ function transpose_list_of_objects(list) {
     }
 
 funkyheatmap(
-      transpose_list_of_objects(filteredData),
-      transpose_list_of_objects(filteredColumnInfo),
+      transpose_list_of_objects(final_data),
+      transpose_list_of_objects(column_info),
       [],
-      transpose_list_of_objects(filteredColumnGroups),
+      transpose_list_of_objects(column_groups),
       
       [],
       palettes,
