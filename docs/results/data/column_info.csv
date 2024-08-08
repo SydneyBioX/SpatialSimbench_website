@@ -1,4 +1,6 @@
 id,group,name,geom,palette,options
+method,method,NA,text,NA,
+adaptor,method,Adaptor,text,NA,
 overall_summary,summary,Overall,bar,overall,
 data_pro_summary,summary,data proporties,bar,palette1,
 spatial_task_summary,summary,Spatial Task,bar,palette2,
