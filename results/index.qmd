@@ -113,7 +113,7 @@ filteredColumnInfo = removeLastNItems(column_info, 12);
 
 filteredColumnGroups = removeLastNItems(column_groups, 2);
 
-console.log(filteredColumnGroups)
+//console.log(filteredColumnGroups)
 
 
 ```
