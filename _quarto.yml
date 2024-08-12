@@ -17,10 +17,9 @@ format:
     page-layout: full
     css: styles.css
     toc: true
-    
+
 
 editor: visual
 
 page-footer:
-execute: 
   center: "#&copy Sydney Precision Data Science Center"

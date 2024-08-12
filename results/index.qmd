@@ -51,7 +51,7 @@ library(jsonlite)
 //show_con = Inputs.toggle({label: "Show control methods:", value: true})
 
 final_data = FileAttachment("./data/final_data2.csv").csv()
-column_info = await FileAttachment("./data/column_info.csv").csv()
+column_info = await FileAttachment("./data/column_info_v2.csv").csv()
 column_groups = await FileAttachment("./data/column_groups.JSON").json()
 
 palettes = [

@@ -23,3 +23,7 @@ main.column-page_left, main.column-page_right {
   padding: 0; 
   box-sizing: border-box; 
 }
+
+.funkyheatmap {
+  color: black !important;
+}
