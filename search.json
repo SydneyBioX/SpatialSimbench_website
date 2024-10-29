@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "results/index.html",
+    "href": "results/index.html",
+    "title": "Results",
+    "section": "",
+    "text": "funkyheatmap = (await require('d3@7').then(d3 =&gt; {\n\n  window.d3 = d3;\n\n  window._ = _;\n\n  return import('https://unpkg.com/funkyheatmapjs@0.2.5');\n\n})).default;\nfinal_data = FileAttachment(\"./data/final_data2.csv\").csv()\ncolumn_info = await FileAttachment(\"./data/column_info_v2.csv\").csv()\ncolumn_groups = await FileAttachment(\"./data/column_groups.JSON\").json()\n\npalettes = [\n    {\n        overall: \"Greys\",\n        palette1: \"Blues\",\n        palette2: \"Reds\",\n        palette3: \"Greens\",\n        palette4: \"YlOrBr\",\n        NA: \"Greys\",\n        white6black4: \"Greys\",\n        error_reason: {\n          colors: [\"#8DD3C7\", \"#FFFFB3\", \"#BEBADA\", \"#FFFFFF\"],\n          names: [\"Memory limit exceeded\", \"Time limit exceeded\", \"Execution error\", \"No error\"]\n        }\n      }\n    ][0]\nfunction removeLastNColumns(data, n) {\n  if (data.length === 0 || n &lt;= 0) return data;\n\n  // Extract the keys of the columns\n  const keys = Object.keys(data[0]);\n\n  // Determine the columns to keep\n  const columnsToKeep = keys.slice(0, -n);\n\n  // Filter columns for each row\n  return data.map(row =&gt; {\n    const newRow = {};\n    columnsToKeep.forEach(key =&gt; {\n      newRow[key] = row[key];\n    });\n    return newRow;\n  });\n}\n\n// Remove the last 4 columns from the data\nfilteredData = removeLastNColumns(final_data, 6);\n\nfunction removeLastNItems(array, n) {\n  return array.slice(0, -n);\n}\n\n\n// Remove the last 4 items\nfilteredColumnInfo = removeLastNItems(column_info, 12);\n\nfilteredColumnGroups = removeLastNItems(column_groups, 2);"
+  },
+  {
+    "objectID": "results/index.html#results---heatmap",
+    "href": "results/index.html#results---heatmap",
+    "title": "Results",
+    "section": "Results - Heatmap",
+    "text": "Results - Heatmap\n\nfunction transpose_list_of_objects(list) {\n      return Object.fromEntries(Object.keys(list[0]).map(key =&gt; [key, list.map(d =&gt; d[key])]))\n    }\n\nfunkyheatmap(\n      transpose_list_of_objects(final_data),\n      transpose_list_of_objects(column_info),\n      [],\n      transpose_list_of_objects(column_groups),\n      \n      [],\n      palettes,\n      {\n          fontSize: 14,\n          rowHeight: 26,\n          rootStyle: 'max-width: none',\n          colorByRank: true\n      }\n    );\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFilter methods"
+  },
+  {
+    "objectID": "results/index.html#results---table",
+    "href": "results/index.html#results---table",
+    "title": "Results",
+    "section": "Results - Table",
+    "text": "Results - Table"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "About",
+    "section": "",
+    "text": "Multi-task benchmarking of spatially resolved gene expression simulation models\nAbstract\nComputational methods for spatially resolved transcriptomics (SRT) are frequently developed and assessed through data simulation. The effectiveness of these evaluations relies on the simulation methods’ ability to accurately reflect experimental data. However, a systematic evaluation framework for spatial simulators is lacking. Here, we present SpatialSimBench, a comprehensive evaluation framework that assesses 13 simulation methods using 10 distinct STR datasets. We introduce simAdaptor, a tool that extends single-cell simulators to incorporate spatial variables, thus enabling them to simulate spatial data. SimAdaptor enables SpatialSimBench to be “back-wards” compatible. That is, it facilitates direct comparison between spatially aware simulators and existing non-spatial single-cell simulators through the adaption. Through SpatialSimBench, we demonstrate the feasibility of leveraging existing single-cell simulators for SRT data and highlight performance differences among methods. Additionally, we evaluate the simulation methods based on a total of 35 metrics across data property estimation, various downstream analysis and scalability. In total, we generated 4550 results from 13 simulation methods, 10 spatial datasets and 35 metrics. Our findings reveal that model estimation can be impacted by distribution assumptions and dataset characteristics. In summary, our evaluation and the evaluation framework will provide guidelines for selecting appropriate methods for specific scenarios and informing future method development.\nResearch paper link"
+  }
+]
