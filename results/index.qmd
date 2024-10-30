@@ -1,5 +1,6 @@
 ---
 title: "Results"
+toc: false
 ---
 
 
@@ -122,6 +123,7 @@ filteredColumnGroups = removeLastNItems(column_groups, 2);
 //| echo: false
 //| column: page
 
+
 function transpose_list_of_objects(list) {
       return Object.fromEntries(Object.keys(list[0]).map(key => [key, list.map(d => d[key])]))
     }
@@ -145,32 +147,7 @@ funkyheatmap(
 
 ```
 
-<summary>Filter methods</summary>
 
-<!-- ::: {.cell .panel-input .card .bg-light}
-
-<details>
-
-<summary>Filter methods</summary>
-
-```{ojs}
-//| echo: false
-
-viewof method_ids = Inputs.checkbox(
-  final_data.filter(item => item.method),
-  {
-    value: final_data.map(item => item.method),
-    label: "Methods:"
-  } 
-)
-
-```  
-
-</details>
-
-<details>
-
-<summary>Filter metrics</summary>
 
 ```{ojs}
 //| echo: false

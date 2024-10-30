@@ -15,8 +15,9 @@ website:
 format:
   html:
     theme: flatly
+    css: styles.css
     toc: true
-    styles: styles.css
+    
 
 
 editor: visual
