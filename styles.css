@@ -1,4 +1,22 @@
+.about-contents {
+    display: inline !important;
+    align-items: center;
+    width: 80%;
+    height: 90%;
+    padding: 50px;
+    margin: 20px;
+  }
 
+  #title-block-header   {
+    padding-left: 50px;
+    padding-top: 30px;
+  }
+
+.level1 {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+  
 .quarto-title-banner {
   height: 540px;
   background-position: center;

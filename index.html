@@ -68,6 +68,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed fullcontent">
@@ -108,7 +109,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -129,14 +130,14 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="multi-task-benchmarking-of-spatially-resolved-gene-expression-simulation-models" class="level1">
+<section id="multi-task-benchmarking-of-spatially-resolved-gene-expression-simulation-models" class="level1 column-body-outset">
 <h1>Multi-task benchmarking of spatially resolved gene expression simulation models</h1>
 <p><strong>Abstract</strong></p>
 <p>Computational methods for spatially resolved transcriptomics (SRT) are frequently developed and assessed through data simulation. The effectiveness of these evaluations relies on the simulation methods’ ability to accurately reflect experimental data. However, a systematic evaluation framework for spatial simulators is lacking. Here, we present SpatialSimBench, a comprehensive evaluation framework that assesses 13 simulation methods using 10 distinct STR datasets. We introduce simAdaptor, a tool that extends single-cell simulators to incorporate spatial variables, thus enabling them to simulate spatial data. SimAdaptor enables SpatialSimBench to be “back-wards” compatible. That is, it facilitates direct comparison between spatially aware simulators and existing non-spatial single-cell simulators through the adaption. Through SpatialSimBench, we demonstrate the feasibility of leveraging existing single-cell simulators for SRT data and highlight performance differences among methods. Additionally, we evaluate the simulation methods based on a total of 35 metrics across data property estimation, various downstream analysis and scalability. In total, we generated 4550 results from 13 simulation methods, 10 spatial datasets and 35 metrics. Our findings reveal that model estimation can be impacted by distribution assumptions and dataset characteristics. In summary, our evaluation and the evaluation framework will provide guidelines for selecting appropriate methods for specific scenarios and informing future method development.</p>
 <p><a href="https://www.biorxiv.org/content/10.1101/2024.05.29.596418v1"><strong>Research paper link</strong></a></p>
-
-
 </section>
+
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
