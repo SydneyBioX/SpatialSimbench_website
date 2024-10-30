@@ -1,11 +1,8 @@
 ---
 title: "Results"
-format:
-  html:
-    page-layout: full
-    code-link: true
-    toc: false
 ---
+
+
 
 
 ```{ojs}
@@ -117,12 +114,13 @@ filteredColumnGroups = removeLastNItems(column_groups, 2);
 
 
 ```
-::: {.fullwidth}
+::: {.column-page}
 ## Results - Heatmap
 
 
 ```{ojs}
 //| echo: false
+//| column: page
 
 function transpose_list_of_objects(list) {
       return Object.fromEntries(Object.keys(list[0]).map(key => [key, list.map(d => d[key])]))
@@ -192,6 +190,7 @@ viewof metric_ids = Inputs.checkbox(
 ```{r}
 #| echo: false
 #| warning: false
+#| column: page
 
 library(tibble)
 library(dplyr)
@@ -206,14 +205,18 @@ datatable(
     pageLength = 15,
     scrollX = TRUE,
     searching = TRUE,
-    autoWidth = TRUE
+    autoWidth = FALSE,
+    border = TRUE
     
   ),
   filter = "top",
-  class = 'stripe compact',
+  class = 'stripe compact bordered',
   style = 'bootstrap'
 ) %>%
   formatRound(columns = which(sapply(final_data_csv, is.numeric)), digits = 2)
 ```
 
 :::
+
+:::
+
