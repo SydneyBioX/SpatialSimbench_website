@@ -197,18 +197,21 @@ final_data_csv[columns_to_normalize] <- lapply(final_data_csv[columns_to_normali
   (x - min(x, na.rm = TRUE)) / (max(x, na.rm = TRUE) - min(x, na.rm = TRUE))
 })
 
+final_data_csv$method <- factor(final_data_csv$method)
+final_data_csv$adaptor <- factor(final_data_csv$adaptor)
+
 datatable(
   final_data_csv,
   options = list(
     pageLength = 15,
     scrollX = TRUE,
     searching = TRUE,
-    autoWidth = FALSE,
+    autoWidth = TRUE,
     border = TRUE
     
   ),
   filter = "top",
-  class = 'stripe compact bordered',
+  class = 'stripe compact',
   style = 'bootstrap'
 ) %>%
   formatRound(columns = which(sapply(final_data_csv, is.numeric)), digits = 2)

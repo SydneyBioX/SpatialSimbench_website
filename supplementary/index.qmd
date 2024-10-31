@@ -1,23 +1,13 @@
 ---
 title: "Supplementary"
 toc: false
-format: 
-  html:
-    page-layout: article
 ---
 
 
+<div class="level1"> 
+Details of the three evaluations categories with metric and range in this study.
 
 
-:::{.column-body-outset}
+![](tab3.png){width=700}
 
-```{r}
-
-```
-
-
-**Table 3**
-
-
-:::
-
+</div>
