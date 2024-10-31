@@ -11,6 +11,8 @@ website:
         text: About
       - href: results/index.qmd
         text: Results
+      - href: supplementary/index.qmd
+        text: Supplementary
 
 format:
   html:

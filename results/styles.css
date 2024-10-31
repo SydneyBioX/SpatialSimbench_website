@@ -7,6 +7,10 @@
   height: 90%;
 }
 
+.funkyheatmap {
+  width: 100% !important;
+}
+
 /*
 main.column-page {
   width: 80vw !important; 

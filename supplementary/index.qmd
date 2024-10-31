@@ -1,0 +1,23 @@
+---
+title: "Supplementary"
+toc: false
+format: 
+  html:
+    page-layout: article
+---
+
+
+
+
+:::{.column-body-outset}
+
+```{r}
+
+```
+
+
+**Table 3**
+
+
+:::
+
