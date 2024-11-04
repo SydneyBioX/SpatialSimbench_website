@@ -52,10 +52,16 @@ function i(t, e, o, i, a) {
 }
 const a = {
     numerical: {
-        Blues: ["#011636", "#08306B", "#08519C", "#2171B5", "#4292C6", "#6BAED6", "#9ECAE1", "#C6DBEF", "#DEEBF7", "#F7FBFF"],
+        //Blues: ["#011636", "#08306B", "#08519C", "#2171B5", "#4292C6", "#6BAED6", "#9ECAE1", "#C6DBEF", "#DEEBF7", "#F7FBFF"],
+        Blues: ["#6ABAC4", "#71BDC7", "#79C1CA", "#81C4CD", "#89C8D0", "#91CCD3", "#99CFD6", "#A0D3D9", "#A8D7DC", "#B0DADF", "#B8DEE3", "#C0E1E6", 
+            "#C8E5E9", "#CFE9EC", "#D7ECEF", "#DFF0F2", "#E7F4F5", "#EFF7F8", "#F7FBFB"],
         Greens: ["#00250f", "#00441B", "#006D2C", "#238B45", "#41AB5D", "#74C476", "#A1D99B", "#C7E9C0", "#E5F5E0"],
         Greys: ["#000000", "#252525", "#525252", "#737373", "#969696", "#BDBDBD", "#D9D9D9", "#F0F0F0"],
-        Reds: ["#CB181D", "#EF3B2C", "#FB6A4A", "#FC9272", "#FCBBA1", "#FEE0D2", "#FFF5F0"],
+        //Reds: ["#CB181D", "#EF3B2C", "#FB6A4A", "#FC9272", "#FCBBA1", "#FEE0D2", "#FFF5F0"],
+        Reds: ["#FA8072", "#FA8679", "#FA8D80", "#FA9488", "#FB9A8F", "#FBA197", "#FBA89E", "#FBAEA5", "#FCB5AD", "#FCBCB4", "#FCC2BC", "#FCC9C3",
+            "#FDD0CB", "#FDD6D2", "#FDDDD9", "#FDE4E1", "#FEEAE8", "#FEF1F0", "#FEF8F7"],
+        Yellows: ["#FFE5B4", "#FFE6B7", "#FFE7BB", "#FFE9BF", "#FFEAC3", "#FFEBC7", "#FFEDCB", "#FFEECF", "#FFEFD3", "#FFF1D7", 
+            "#FFF2DB", "#FFF4DF", "#FFF5E3", "#FFF6E7", "#FFF8EB", "#FFF9EF", "#FFFAF3", "#FFFCF7", "#FFFDFB"],
         YlOrBr: ["#EC7014", "#FE9929", "#FEC44F", "#FEE391", "#FFF7BC", "#FFFFE5"]
     },
     categorical: {
