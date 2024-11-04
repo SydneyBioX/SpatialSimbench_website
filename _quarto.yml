@@ -2,6 +2,9 @@ project:
   type: website
   output-dir: docs
 
+resources: 
+  - js
+    
 website:
   title: "SpatialSimBench"
   description: "Spatial Benchmark"
@@ -19,8 +22,6 @@ format:
     theme: flatly
     css: styles.css
     toc: true
-    
-
 
 editor: visual
 

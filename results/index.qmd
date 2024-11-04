@@ -1,6 +1,8 @@
 ---
 title: "Results"
 toc: false
+resources: 
+  - js
 ---
 
 
@@ -15,9 +17,13 @@ funkyheatmap = (await require('d3@7').then(d3 => {
 
   window._ = _;
 
-  return import('https://unpkg.com/funkyheatmapjs@0.2.5');
+  //return import('https://unpkg.com/funkyheatmapjs@0.2.5');
+  return import('./js/funkyheatmap.js')
 
 })).default;
+
+//d3 = require("d3@7")
+//import { funkyheatmap } from './js/funkyheatmap.js'
 
 ```
 
@@ -59,7 +65,7 @@ palettes = [
         overall: "Greys",
         palette1: "Blues",
         palette2: "Reds",
-        palette3: "Greens",
+        palette3: "Yellows",
         palette4: "YlOrBr",
         NA: "Greys",
         white6black4: "Greys",
