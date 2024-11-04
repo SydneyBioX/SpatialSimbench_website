@@ -1,3 +1,5 @@
+d3 = require("d3@7")
+
 var t = {};
 t = d3;
 var e = {};
