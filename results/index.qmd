@@ -1,7 +1,8 @@
 ---
 title: "Results"
 toc: false
-
+resources: 
+  - js
 ---
 
 
@@ -16,13 +17,14 @@ funkyheatmap = (await require('d3@7').then(d3 => {
 
   window._ = _;
 
-  return import('https://unpkg.com/funkyheatmapjs@0.2.5');
-  //return import('./js/funkyheatmap.js')
+  //return import('https://unpkg.com/funkyheatmapjs@0.2.5');
+  //return import('https://github.com/SydneyBioX/SpatialSimbench_website/blob/main/js/funkyheatmap.js')
+  return import("../../js/funkyheatmap.js")
 
 })).default;
 
 //d3 = require("d3@7")
-//import { funkyheatmap } from './js/funkyheatmap.js'
+//import { funkyheatmap } from '../js/funkyheatmap.js'
 
 ```
 
@@ -54,7 +56,7 @@ library(jsonlite)
 //show_con = Inputs.toggle({label: "Show control methods:", value: true})
 
 
-final_data_raw = FileAttachment("./data/final_data2.csv").csv()
+final_data_raw = FileAttachment("./data/final_data3.csv").csv()
 
 column_info = await FileAttachment("./data/column_info_v2.csv").csv()
 column_groups = await FileAttachment("./data/column_groups.JSON").json()
@@ -64,7 +66,7 @@ palettes = [
         overall: "Greys",
         palette1: "Blues",
         palette2: "Reds",
-        palette3: "Greens",
+        palette3: "Yellows",
         palette4: "YlOrBr",
         NA: "Greys",
         white6black4: "Greys",

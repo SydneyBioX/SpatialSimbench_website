@@ -18,8 +18,10 @@ format:
   html:
     theme: flatly
     css: styles.css
-    js: js/funkyheatmap.js
     toc: true
+
+resources: 
+  - js
 
 editor: visual
 
