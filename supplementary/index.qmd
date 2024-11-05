@@ -6,7 +6,7 @@ format:
     page-layout: article
 ---
 
-Details of the three evaluations categories with metric and range in this study.
+<!-- Details of the three evaluations categories with metric and range in this study.
 
 +-----------------------------------------------+--------------------------------+-------------------+---------------------------+-------------------------------------+
 | Evaluation                                    | Task                           | Transformation    | Metric                    | Range                               |
@@ -33,4 +33,4 @@ Details of the three evaluations categories with metric and range in this study.
 |                                               +--------------------------------+-------------------|                           |                                     |
 |                                               |                                |                   |                           |                                     |
 +-----------------------------------------------+--------------------------------+-------------------+---------------------------+-------------------------------------+
-|                                               |                                |                   |                           |                                     |
+|                                               |                                |                   |                           |                                     | -->

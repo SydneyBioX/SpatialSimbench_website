@@ -1,12 +1,5 @@
 [
   {
-    "objectID": "supplementary/index.html",
-    "href": "supplementary/index.html",
-    "title": "Supplementary",
-    "section": "",
-    "text": "Details of the three evaluations categories with metric and range in this study.\n\n\n\n\n\n\n\n\n\n\nEvaluation\nTask\nTransformation\nMetric\nRange\n\n\n\n\nData properties\nLibrary size\nNo\nKernel Density Scores\n[0, infinity) then map to [0, 1]\n\n\nTMM\nNo\n\n\nEffective library size\nNo\nYes, z-score standardization ——————- Yes, z-score standardization ——————- No ——————- No ——————- No ——————-\n\n\n\nScaled variance\n\n\nScaled mean\n\n\nFraction zero\n\n\nSample Pearson correlation\n\n\nFraction zero gene"
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Paper",
