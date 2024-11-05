@@ -169,7 +169,7 @@ const n = {
             evenRowBackground: "#eee",
             textColor: "black",
             strokeColor: "#555",
-            headerColor: "white",
+            headerColor: "#555",
             hoverColor: "#1385cb"
         }
     };
@@ -270,7 +270,7 @@ class d {
                 d = t[0].offset,
                 g = l.offset + l.widthPx + e.geomPadding,
                 c = a.palette(.5);
-            n.append("rect").attr("x", d).attr("y", 0).attr("width", g - d).attr("height", e.rowHeight).attr("fill", c).attr("opacity", .25);
+            n.append("rect").attr("x", d).attr("y", 0).attr("width", g - d).attr("height", e.rowHeight).attr("fill", c).attr("opacity", 0.9);
             const p = n.append("text").attr("x", d + (g - d) / 2).attr("y", e.rowHeight / 2).attr("text-anchor", "middle").attr("dominant-baseline", "central").attr("fill", e.theme.headerColor).text(i.level1);
             if (e.fontSize && p.attr("font-size", e.fontSize), e.labelGroupsAbc) {
                 const t = String.fromCharCode("a".charCodeAt(0) + h),
