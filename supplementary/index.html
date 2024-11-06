@@ -134,6 +134,32 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<!-- 
+
+#| echo: false
+#| label: supplementary table 3
+#| tbl-cap: Details of the three evaluations categories with metric and range in this study
+
+from IPython.display import Markdown
+from tabulate import tabulate
+import pandas as pd
+
+df = pd.read_csv("data/supp3.csv", encoding='ISO-8859-1')
+
+df = df.fillna(' ')
+
+table = df.values.tolist()
+
+""" table = [["Sun","696,000",1.989e30],
+         ["Earth","6,371",5.972e24],
+         ["Moon","1,737",7.34e22],
+         ["Mars","3,390",6.39e23]] """
+
+Markdown(tabulate(
+  table, 
+  headers=["Evaluation", "Task", " ", "Transformation", "Metric", "Range"]
+))
+``` -->
 <section id="details-of-the-three-evaluations-categories-with-metric-and-range-in-this-study" class="level2">
 <h2 class="anchored" data-anchor-id="details-of-the-three-evaluations-categories-with-metric-and-range-in-this-study">Details of the three evaluations categories with metric and range in this study</h2>
 <table class="caption-top table">
@@ -232,8 +258,8 @@ ul.task-list li input[type="checkbox"] {
 <td></td>
 <td></td>
 <td>Scaled variance</td>
-<td></td>
 <td>Yes, z-score standardization</td>
+<td></td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -256,8 +282,8 @@ ul.task-list li input[type="checkbox"] {
 <td></td>
 <td></td>
 <td>Mean vs variance (scale)</td>
-<td></td>
 <td>Yes, log-normal transformation</td>
+<td></td>
 <td></td>
 </tr>
 <tr class="even">

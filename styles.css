@@ -29,6 +29,18 @@
   text-align: center;
 }
 
+thead{
+    background-color: #EDEDED;
+}
+
+thead, tbody, tfoot, tr, td, th  {
+    border-style: none;
+}
+
+.odd {
+    background-color: #f9f9f9;
+}
+
 svg {
     font-family: 'Arial Narrow';
     font-size: 7;
