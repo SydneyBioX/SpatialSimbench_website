@@ -29,10 +29,14 @@
   text-align: center;
 }
 
-body .page-columns {
-    display: inline !important;
+svg {
     font-family: 'Arial Narrow';
     font-size: 7;
+}
+
+body .page-columns {
+    display: inline !important;
+    
 }
 
 .level2 {
@@ -40,6 +44,12 @@ body .page-columns {
     margin: auto;  
     padding: 40px;  
 }
+
+.caption-top {
+    padding-left: 50px !important;
+    padding-top: 30px !important;
+}
+
 
 @media screen and (max-width: 575.98px) {
     .quarto-title-banner {

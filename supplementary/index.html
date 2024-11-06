@@ -134,34 +134,292 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<!-- Details of the three evaluations categories with metric and range in this study.
-
-+-----------------------------------------------+--------------------------------+-------------------+---------------------------+-------------------------------------+
-| Evaluation                                    | Task                           | Transformation    | Metric                    | Range                               |
-+===============================================+================================+===================+===========================+=====================================+
-| Data properties                               | Library size                   | No                | Kernel Density Scores     | \[0, infinity) then map to \[0, 1\] |
-|                                               +--------------------------------+-------------------+                           |                                     |
-|                                               | TMM                            | No                |                           |                                     |
-|                                               +--------------------------------+-------------------+                           |                                     |
-|                                               | Effective library size         | No                |                           |                                     |
-|                                               +--------------------------------+-------------------|                           |                                     |
-|                                               | Scaled variance                | Yes, z-score      |                           |                                     |
-|                                               |                                | standardization   |                           |                                     |
-|                                               +--------------------------------+-------------------|                           |                                     |
-|                                               | Scaled mean                    | Yes, z-score      |                           |                                     |
-|                                               |                                | standardization   |                           |                                     |
-|                                               +--------------------------------+-------------------|                           |                                     |
-|                                               | Fraction zero                  | No                |                           |                                     |
-|                                               +--------------------------------+-------------------|                           |                                     |
-|                                               | Sample Pearson correlation     | No                |                           |                                     |
-|                                               +--------------------------------+-------------------|                           |                                     |
-|                                               | Fraction zero gene             | No                |                           |                                     |
-|                                               +--------------------------------+-------------------|                           |                                     |
-|                                               |                                |                   |                           |                                     |
-|                                               +--------------------------------+-------------------|                           |                                     |
-|                                               |                                |                   |                           |                                     |
-+-----------------------------------------------+--------------------------------+-------------------+---------------------------+-------------------------------------+
-|                                               |                                |                   |                           |                                     | -->
+<table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 18%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 17%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Evaluation</th>
+<th>Task</th>
+<th>SubTask</th>
+<th>Transformation</th>
+<th>Metric</th>
+<th>Range</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Data properties</strong></td>
+<td><strong>Spot-level</strong></td>
+<td>Fraction zero</td>
+<td>No</td>
+<td>Kernel Density</td>
+<td>[0, infinity) then map to [0, 1]</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>Library size</td>
+<td>No</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>TMM</td>
+<td>No</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>Effective library size</td>
+<td>No</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>Scaled variance</td>
+<td>Yes, z-score standardization</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>Scaled mean</td>
+<td>Yes, z-score standardization</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>Library size vs Fraction zero</td>
+<td>No</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>Sample Pearson correlation</td>
+<td>No</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><strong>Gene-level</strong></td>
+<td>Fraction zero gene</td>
+<td>No</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>Scaled variance</td>
+<td></td>
+<td>Yes, z-score standardization</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>Scaled mean</td>
+<td>Yes, z-score standardization</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>Mean vs variance</td>
+<td>No</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>Mean vs variance (scale)</td>
+<td></td>
+<td>Yes, log-normal transformation</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>Mean vs fraction zero</td>
+<td>No</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>Gene Pearson correlation</td>
+<td>No</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><strong>Spatial-level</strong></td>
+<td>Transition Matrix (TM)</td>
+<td>No</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>Neighborhood enrichment matrix (NEM)</td>
+<td>No</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>Centralized score matrix (CSM)</td>
+<td>No</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>Cell type interaction</td>
+<td>No</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>Moran’s I</td>
+<td>No</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>L statistics</td>
+<td>No</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>Nearest neighbor correlation</td>
+<td>No</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Spatial downstream analysis</strong></td>
+<td><strong>Spatial clustering</strong></td>
+<td></td>
+<td>No</td>
+<td>Adjusted rand index (ARI)</td>
+<td>[-1, 1]</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td>No</td>
+<td>Normalized mutual information (NMI)</td>
+<td>[0, 1]</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><strong>Cell type deconvolution</strong></td>
+<td></td>
+<td>No</td>
+<td>Root mean square deviation (RMSE)</td>
+<td>[0, infinity)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td>No</td>
+<td>Jensen-Shannon divergence (JSD)</td>
+<td>[0, 1]</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><strong>Spatially variable genes (SVG) identification</strong></td>
+<td></td>
+<td>No</td>
+<td>Precision</td>
+<td>[0, 1]</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td>No</td>
+<td>Recall</td>
+<td>[0, 1]</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><strong>Spatial cross-correlation</strong></td>
+<td></td>
+<td>No</td>
+<td>Cosine similarity</td>
+<td>[-1, 1]</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td>No</td>
+<td>Mental statistics</td>
+<td>[-1, 1]</td>
+</tr>
+<tr class="odd">
+<td><strong>Scalability</strong></td>
+<td><strong>200 x 200</strong></td>
+<td></td>
+<td>No</td>
+<td>time</td>
+<td>[0, infinity)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><strong>3k x 500</strong></td>
+<td></td>
+<td>No</td>
+<td>memory</td>
+<td>[0, infinity)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><strong>5k x 1k</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
 
 
