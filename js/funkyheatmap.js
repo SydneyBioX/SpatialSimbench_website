@@ -154,12 +154,12 @@ const n = {
         }
     },
     l = {
-        rowHeight: 24,
+        rowHeight: 27,
         padding: 5,
         geomPadding: 1.5,
         columnRotate: 30,
         midpoint: .8,
-        legendFontSize: 12,
+        legendFontSize: 7,
         legendTicks: [0, .2, .4, .6, .8, 1],
         labelGroupsAbc: !1,
         colorByRank: !1,
@@ -270,7 +270,7 @@ class d {
                 d = t[0].offset,
                 g = l.offset + l.widthPx + e.geomPadding,
                 c = a.palette(.5);
-            n.append("rect").attr("x", d).attr("y", 0).attr("width", g - d).attr("height", e.rowHeight).attr("fill", c).attr("opacity", 0.9);
+            n.append("rect").attr("x", d).attr("y", 0).attr("width", g - d).attr("height", e.rowHeight).attr("fill", c).attr("opacity", 0.6);
             const p = n.append("text").attr("x", d + (g - d) / 2).attr("y", e.rowHeight / 2).attr("text-anchor", "middle").attr("dominant-baseline", "central").attr("fill", e.theme.headerColor).text(i.level1);
             if (e.fontSize && p.attr("font-size", e.fontSize), e.labelGroupsAbc) {
                 const t = String.fromCharCode("a".charCodeAt(0) + h),
@@ -418,7 +418,7 @@ var h = function(e, r, a = [], n = [], l = [], h, g = {}, c = !0, p = []) {
     [e, r, n, a, l] = o(e, r, n, a, l);
     const m = r.map((t => t.id));
     s(r = i(e, m, r, c, g.colorByRank), h);
-    const f = t.select("body").append("svg").classed("funkyheatmap", !0).style("visibility", "hidden").style("position", "absolute").style("left", "-2000px"),
+    const f = t.select("body").append("svg").classed("funkyheatmap", !0).style("visibility", "hidden").style("position", "absolute").style("left", "-1000px"),
         u = new d(e, r, n, a, l, h, p, g, f);
     return u.render(), u.listen(), u.svg.remove(), u.svg.node()
 };

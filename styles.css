@@ -1,3 +1,4 @@
+
 .about-contents {
     display: inline !important;
     align-items: center;
@@ -30,6 +31,8 @@
 
 body .page-columns {
     display: inline !important;
+    font-family: 'Arial Narrow';
+    font-size: 7;
 }
 
 .level2 {
