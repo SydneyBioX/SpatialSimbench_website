@@ -29,6 +29,10 @@
   text-align: center;
 }
 
+.left-align {
+    text-align:justify;
+}
+
 thead{
     background-color: #EDEDED;
 }
