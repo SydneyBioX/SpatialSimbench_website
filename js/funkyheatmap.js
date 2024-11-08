@@ -154,7 +154,7 @@ const n = {
         }
     },
     l = {
-        rowHeight: 27,
+        rowHeight: 35,
         padding: 5,
         geomPadding: 1.5,
         columnRotate: 30,
@@ -199,7 +199,7 @@ class d {
     renderData() {
         const e = this.options;
         let o, r = 0;
-        e.bodyHeight = this.data.length * e.rowHeight, this.renderGroups && (e.bodyHeight += this.rowGroups.size * e.rowHeight), this.columnInfo.forEach(((i, a) => {
+        e.bodyHeight = this.data.length * e.rowHeight , this.renderGroups && (e.bodyHeight += this.rowGroups.size * e.rowHeight), this.columnInfo.forEach(((i, a) => {
             let s, l = 0,
                 d = 0,
                 h = 0 === a;
@@ -253,10 +253,82 @@ class d {
         let o = 0,
             i = 0,
             a = !1;
-        const n = this.header.append("g"),
-            l = this.header.append("g").attr("transform", `translate(0, ${e.rowHeight+e.padding})`),
+        const nn = this.header.append("g"),
+        n = this.header.append("g"),
+            l = this.header.append("g").attr("transform", `translate(0, ${e.rowHeight+e.padding+30})`),
             d = t.group(this.columnInfo, (t => t.group));
         let h = 0;
+        let hh = 0;
+
+        const uniqueEntries = new Map();
+        
+        d.forEach((tt, oo) => {
+            if (!oo) return;
+            const ii = this.columnGroups.get(oo);
+            if (!ii.level2 || !ii.palette) return;
+            const aa = new r({
+                id: "_group",
+                palette: ii.palette
+            }, 1);
+            aa.maybeCalculateStats(null, !1), s([aa], this.palettes);
+
+            /* const ll = tt[tt.length - 1],
+                dd = tt[0].offset,
+                gg = ll.offset + ll.widthPx + e.geomPadding,
+                cc = aa.palette(.5);
+
+                let h = 0;
+                nn.append("rect").attr("x", dd).attr("y", 0 + 30).attr("width", gg - dd).attr("height", e.rowHeight).attr("fill", cc).attr("opacity", 0.8);
+                const pp = nn.append("text").attr("x", dd + (gg - dd) / 2).attr("y", e.rowHeight / 2).attr("text-anchor", "middle").attr("dominant-baseline", "central").attr("fill", e.theme.headerColor).text(ii.level2);
+                if (e.fontSize && pp.attr("font-size", e.fontSize), e.labelGroupsAbc) {
+                    const t2 = String.fromCharCode("a".charCodeAt(0) + hh),
+                        oo = nn.append("text").attr("x", dd + e.padding).attr("y", e.rowHeight / 2 + 30).attr("dominant-baseline", "central").attr("fill", e.theme.headerColor).text(`${t})`);
+                    e.fontSize && oo.attr("font-size", e.fontSize)
+                }
+                hh += 1     */
+             const ll = tt[tt.length - 1], 
+                pal = aa.palette(.5);   
+            const groupName = ii.level2;
+
+            // Calculate start and end offsets based on this group's elements
+            const startOffset = tt[0].offset;
+            const endOffset = tt[tt.length - 1].offset + tt[tt.length - 1].widthPx + e.geomPadding;
+
+            //const widthPx = ll.widthPx + e.geomPadding;
+            //console.log("Width", ll.widthPx, widthPx, e.geomPadding);
+
+            if (!uniqueEntries.has(groupName)) {
+                uniqueEntries.set(groupName, {
+                    l2: ii.level2,
+                    ss: startOffset,
+                    ee: endOffset,
+                    gg: pal
+                });
+            } else {
+                // Update the endOffset to extend to cover the entire width of duplicates
+                const currentGroup = uniqueEntries.get(groupName);
+                currentGroup.ss = Math.min(currentGroup.ss, startOffset); // Update to minimum start offset
+                currentGroup.ee = Math.max(currentGroup.ee, endOffset);   // Update to maximum end offset
+                
+            } 
+        }) 
+
+        //console.log(uniqueEntries)
+        uniqueEntries.forEach((uniqueEntry) => {
+            const { l2: level2, ss: startOffset, ee: endOffset, gg: pal } = uniqueEntry;
+            const width = endOffset - startOffset;
+
+            console.log(uniqueEntry, level2, startOffset, endOffset, pal)
+            nn.append("rect").attr("x", startOffset).attr("y", 0).attr("width", width).attr("height", e.rowHeight).attr("fill", pal).attr("opacity", 0.8);
+            nn.append("text").attr("x", startOffset + width / 2).attr("y", e.rowHeight /2).attr("text-anchor", "middle").attr("dominant-baseline", "central").attr("fill", e.theme.headerColor).text(level2);
+            /* if (e.fontSize && pp.attr("font-size", e.fontSize), e.labelGroupsAbc) {
+                const tt = String.fromCharCode("a".charCodeAt(0) + hh),
+                    o = n.append("text").attr("x", d + e.padding).attr("y", e.rowHeight / 2).attr("dominant-baseline", "central").attr("fill", e.theme.headerColor).text(`${t})`);
+                e.fontSize && o.attr("font-size", e.fontSize)
+            }
+            hh += 1 */
+        }) 
+            
         d.forEach(((t, o) => {
             if (!o) return;
             const i = this.columnGroups.get(o);
@@ -270,11 +342,13 @@ class d {
                 d = t[0].offset,
                 g = l.offset + l.widthPx + e.geomPadding,
                 c = a.palette(.5);
-            n.append("rect").attr("x", d).attr("y", 0).attr("width", g - d).attr("height", e.rowHeight).attr("fill", c).attr("opacity", 0.6);
-            const p = n.append("text").attr("x", d + (g - d) / 2).attr("y", e.rowHeight / 2).attr("text-anchor", "middle").attr("dominant-baseline", "central").attr("fill", e.theme.headerColor).text(i.level1);
+            
+            
+            n.append("rect").attr("x", d).attr("y", 0 + 30).attr("width", g - d).attr("height", e.rowHeight).attr("fill", c).attr("opacity", 0.4);
+            const p = n.append("text").attr("x", d + (g - d) / 2).attr("y", e.rowHeight / 2 + 30).attr("text-anchor", "middle").attr("dominant-baseline", "central").attr("fill", e.theme.headerColor).text(i.level1);
             if (e.fontSize && p.attr("font-size", e.fontSize), e.labelGroupsAbc) {
                 const t = String.fromCharCode("a".charCodeAt(0) + h),
-                    o = n.append("text").attr("x", d + e.padding).attr("y", e.rowHeight / 2).attr("dominant-baseline", "central").attr("fill", e.theme.headerColor).text(`${t})`);
+                    o = n.append("text").attr("x", d + e.padding).attr("y", e.rowHeight / 2 + 30).attr("dominant-baseline", "central").attr("fill", e.theme.headerColor).text(`${t})`);
                 e.fontSize && o.attr("font-size", e.fontSize)
             }
             h += 1
@@ -296,7 +370,7 @@ class d {
             let i = t.offset + t.widthPx / 2,
                 a = t.rotate ? -e.columnRotate : 0;
             this.header.select(`.column-${r}`).attr("transform", `translate(${i}, ${o-2*e.padding}) rotate(${a})`), t.rotate ? l.append("line").attr("x1", i).attr("x2", i).attr("y1", o - 2).attr("y2", o - 2 - e.padding).attr("stroke", e.theme.strokeColor) : l.select(`.column-${r} text`).attr("text-anchor", "middle")
-        })), this.options.width = i, this.options.headerHeight = o + e.rowHeight + e.padding
+        })), this.options.width = i, this.options.headerHeight = o + e.rowHeight + e.padding + 30
     }
     renderLegend() {
         const e = this.options;
@@ -311,7 +385,7 @@ class d {
                 if ("funkyrect" === t.geom) {
                     a = t.offset;
                     break
-                } i.append("text").attr("x", l + e.geomSize / 2).attr("y", e.rowHeight + e.padding).attr("font-size", e.legendFontSize).style("fill", e.theme.textColor).text("Score:");
+                } i.append("text").attr("x", l + e.geomSize / 2).attr("y", e.rowHeight + e.padding ).attr("font-size", e.legendFontSize).style("fill", e.theme.textColor).text("Score:");
             const o = new r({
                 id: "_legend",
                 palette: "Greys"
@@ -342,13 +416,13 @@ class d {
                 o.push(s), a + l < r.offset && (l += r.offset - a);
                 const n = t.pie().endAngle(Math.PI)(Array(r.palette.colorNames.length).fill(1)),
                     d = i.append("g");
-                d.attr("transform", `translate(${l}, ${1.5*e.rowHeight+e.geomPadding})`), d.selectAll("arcs").data(n).enter().append("path").attr("d", t.arc().innerRadius(0).outerRadius(e.geomSize / 2)).attr("fill", ((t, e) => r.palette(e))).style("stroke", e.theme.strokeColor).style("stroke-width", 1).attr("transform", `translate(${e.geomSize/2+e.geomPadding-.5}, 0)`), d.selectAll("text").data(n).enter().append("text").text(((t, e) => r.palette.colorNames[e])).attr("font-size", e.legendFontSize).attr("dominant-baseline", "central").style("fill", e.theme.textColor).attr("transform", (o => {
+                d.attr("transform", `translate(${l}, ${1.5*e.rowHeight+e.geomPadding})`), d.selectAll("arcs").data(n).enter().append("path").attr("d", t.arc().innerRadius(0).outerRadius(e.geomSize / 2)).attr("fill", ((t, e) => r.palette(e))).style("stroke", e.theme.strokeColor).style("stroke-width", 1).attr("transform", `translate(${e.geomSize/2+e.geomPadding-.5}, 30)`), d.selectAll("text").data(n).enter().append("text").text(((t, e) => r.palette.colorNames[e])).attr("font-size", e.legendFontSize).attr("dominant-baseline", "central").style("fill", e.theme.textColor).attr("transform", (o => {
                     const r = t.arc().innerRadius(e.geomSize / 2).outerRadius(e.geomSize).centroid(o);
                     return r[0] += e.geomSize / 2 + 4 * e.geomPadding, `translate(${r})`
                 })), d.selectAll("lines").data(n).enter().append("path").attr("d", (o => {
                     const r = t.arc().innerRadius(e.geomSize / 2).outerRadius(e.geomSize / 2 + 5).centroid(o),
                         i = t.arc().innerRadius(e.geomSize / 2).outerRadius(e.geomSize - 5).centroid(o);
-                    return r[0] += e.geomSize / 2 + e.geomPadding, i[0] += e.geomSize / 2 + 3 * e.geomPadding, t.line()([r, i])
+                    return r[0] += e.geomSize / 2 + e.geomPadding, i[0] += e.geomSize / 2 + 3 * e.geomPadding, t.line()([r, i]) 
                 })).style("stroke", e.theme.strokeColor).style("stroke-width", .5), l += e.geomSize / 2 + d.node().getBoundingClientRect().width + e.padding
             }))
         }
