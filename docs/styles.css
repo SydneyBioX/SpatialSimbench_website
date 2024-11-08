@@ -1,3 +1,4 @@
+
 .about-contents {
     display: inline !important;
     align-items: center;
@@ -28,8 +29,30 @@
   text-align: center;
 }
 
+.left-align {
+    text-align:justify;
+}
+
+thead{
+    background-color: #EDEDED;
+}
+
+thead, tbody, tfoot, tr, td, th  {
+    border-style: none;
+}
+
+.odd {
+    background-color: #f9f9f9;
+}
+
+svg {
+    font-family: 'Arial Narrow';
+    font-size: 7;
+}
+
 body .page-columns {
     display: inline !important;
+    
 }
 
 .level2 {
@@ -37,6 +60,12 @@ body .page-columns {
     margin: auto;  
     padding: 40px;  
 }
+
+.caption-top {
+    padding-left: 50px !important;
+    padding-top: 30px !important;
+}
+
 
 @media screen and (max-width: 575.98px) {
     .quarto-title-banner {

@@ -1,0 +1,38 @@
+Evaluation ,Task,,Transformation,Metric,Range
+,,Fraction zero,No,,
+,,,,,
+,,Library size,No,,
+,,TMM,No,,
+,,Effective library size,No,,
+,,Scaled variance,"Yes, z-score standardization",,
+,,Scaled mean,"Yes, z-score standardization",,
+,,Library size vs Fraction zero,No,,
+,Spot-level,Sample Pearson correlation,No,,
+,,Fraction zero gene,No,,
+,,,,,
+,,Scaled variance,"Yes, z-score standardization",,
+,,Scaled mean,"Yes, z-score standardization",,
+,,Mean vs variance,No,,
+,,Mean vs variance (scale),"Yes, log-normal transformation",,
+,,Mean vs fraction zero,No,,
+,Gene-level,Gene Pearson correlation,No,,
+,,Transition Matrix (TM),No,,
+,,Neighborhood enrichment matrix (NEM),No,,
+,,Centralized score matrix (CSM),No,Kernel Density Scores,
+,,Cell type interaction,No,,
+,,Moran’s I,No,,
+Data properties,,L statistics,No,,"[0, infinity) then map to [0, 1]"
+,Spatial-level,Nearest neighbor correlation,No,,
+,,,No,Adjusted rand index (ARI),"[-1, 1]"
+,,,,,
+,Spatial clustering,,No,Normalized mutual information (NMI),"[0, 1]"
+,,,No,Root mean square deviation (RMSE),"[0, infinity)"
+,,,,,
+,Cell type deconvolution,,No,Jensen-Shannon divergence (JSD),"[0, 1]"
+,Spatially variable genes (SVG) identification,,No,Precision,"[0, 1]"
+,,,No,Recall,"[0, 1]"
+Spatial downstream analysis,,,No,Cosine similarity,"[-1, 1]"
+,Spatial cross-correlation,,No,Mental statistics,"[-1, 1]"
+Scalability,200 x 200,,No,time,"[0, infinity)"
+,3k x 500,,,,
+,5k x 1k,,No,memory,"[0, infinity)"

@@ -1,0 +1,32 @@
+Data properties,Spot-level,Fraction zero,No,Kernel Density Scores,"[0, infinity) then map to [0, 1]"
+,,Library size,No,,
+,,TMM,No,,
+,,Effective library size,No,,
+,,Scaled variance,"Yes, z-score standardization",,
+,,Scaled mean,"Yes, z-score standardization",,
+,,Library size vs Fraction zero,No,,
+,,Sample Pearson correlation,No,,
+,Gene-level,Fraction zero gene,No,,
+,,Scaled variance,"Yes, z-score standardization",,
+,,Scaled mean,"Yes, z-score standardization",,
+,,Mean vs variance,No,,
+,,Mean vs variance (scale),"Yes, log-normal transformation",,
+,,Mean vs fraction zero,No,,
+,,Gene Pearson correlation,No,,
+,Spatial-level,Transition Matrix (TM),No,,
+,,Neighborhood enrichment matrix (NEM),No,,
+,,Centralized score matrix (CSM),No,,
+,,Cell type interaction,No,,
+,,Moran’s I,No,,
+,,L statistics,No,,
+,,Nearest neighbor correlation,No,,
+Spatial downstream analysis,Spatial clustering,,No,Adjusted rand index (ARI),"[-1, 1]"
+,,,No,Normalized mutual information (NMI),"[0, 1]"
+,Cell type deconvolution,,No,Root mean square deviation (RMSE),"[0, infinity)"
+,,,No,Jensen-Shannon divergence (JSD),"[0, 1]"
+,Spatially variable genes (SVG) identification,,No,Precision,"[0, 1]"
+,,,No,Recall,"[0, 1]"
+,Spatial cross-correlation,,No,Cosine similarity,"[-1, 1]"
+,,,No,Mental statistics,"[-1, 1]"
+Scalability,200 x 200  3k x 500  5k x 1k,,No,time,"[0, infinity)"
+,,,No,memory,"[0, infinity)"

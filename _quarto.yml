@@ -5,6 +5,7 @@ project:
 website:
   title: "SpatialSimBench"
   description: "Spatial Benchmark"
+  favicon: "img/usyd-favicon-16x16.png"
   navbar: 
     left: 
       - href: results/index.qmd
