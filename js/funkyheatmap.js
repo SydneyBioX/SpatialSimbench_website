@@ -159,14 +159,14 @@ const n = {
         geomPadding: 1.5,
         columnRotate: 30,
         midpoint: .8,
-        legendFontSize: 7,
+        legendFontSize: 10,
         legendTicks: [0, .2, .4, .6, .8, 1],
         labelGroupsAbc: !1,
         colorByRank: !1,
         minGeomSize: .25,
         theme: {
             oddRowBackground: "white",
-            evenRowBackground: "#eee",
+            evenRowBackground: "#f9f9f9",
             textColor: "black",
             strokeColor: "#555",
             headerColor: "#555",
@@ -236,7 +236,7 @@ class d {
                 }
                 if (this.body.append((() => w.node())), y = m ? w.select(".fh-orig-geom").node().getBBox().width : w.node().getBBox().width, "image" === i.geom && (y = i.width), y > p && (p = y), p > l && (l = p), m) {
                     m = w.select("text");
-                    let t = 100;
+                    let t = 90;
                     for (let o = 0; o < 8; o++) {
                         const {
                             width: o
@@ -258,8 +258,7 @@ class d {
             l = this.header.append("g").attr("transform", `translate(0, ${e.rowHeight+e.padding+30})`),
             d = t.group(this.columnInfo, (t => t.group));
         let h = 0;
-        let hh = 0;
-
+        
         const uniqueEntries = new Map();
         
         d.forEach((tt, oo) => {
@@ -272,30 +271,11 @@ class d {
             }, 1);
             aa.maybeCalculateStats(null, !1), s([aa], this.palettes);
 
-            /* const ll = tt[tt.length - 1],
-                dd = tt[0].offset,
-                gg = ll.offset + ll.widthPx + e.geomPadding,
-                cc = aa.palette(.5);
-
-                let h = 0;
-                nn.append("rect").attr("x", dd).attr("y", 0 + 30).attr("width", gg - dd).attr("height", e.rowHeight).attr("fill", cc).attr("opacity", 0.8);
-                const pp = nn.append("text").attr("x", dd + (gg - dd) / 2).attr("y", e.rowHeight / 2).attr("text-anchor", "middle").attr("dominant-baseline", "central").attr("fill", e.theme.headerColor).text(ii.level2);
-                if (e.fontSize && pp.attr("font-size", e.fontSize), e.labelGroupsAbc) {
-                    const t2 = String.fromCharCode("a".charCodeAt(0) + hh),
-                        oo = nn.append("text").attr("x", dd + e.padding).attr("y", e.rowHeight / 2 + 30).attr("dominant-baseline", "central").attr("fill", e.theme.headerColor).text(`${t})`);
-                    e.fontSize && oo.attr("font-size", e.fontSize)
-                }
-                hh += 1     */
-             const ll = tt[tt.length - 1], 
-                pal = aa.palette(.5);   
+            const pal = aa.palette(.5);   
             const groupName = ii.level2;
 
-            // Calculate start and end offsets based on this group's elements
             const startOffset = tt[0].offset;
             const endOffset = tt[tt.length - 1].offset + tt[tt.length - 1].widthPx + e.geomPadding;
-
-            //const widthPx = ll.widthPx + e.geomPadding;
-            //console.log("Width", ll.widthPx, widthPx, e.geomPadding);
 
             if (!uniqueEntries.has(groupName)) {
                 uniqueEntries.set(groupName, {
@@ -318,15 +298,9 @@ class d {
             const { l2: level2, ss: startOffset, ee: endOffset, gg: pal } = uniqueEntry;
             const width = endOffset - startOffset;
 
-            console.log(uniqueEntry, level2, startOffset, endOffset, pal)
             nn.append("rect").attr("x", startOffset).attr("y", 0).attr("width", width).attr("height", e.rowHeight).attr("fill", pal).attr("opacity", 0.8);
             nn.append("text").attr("x", startOffset + width / 2).attr("y", e.rowHeight /2).attr("text-anchor", "middle").attr("dominant-baseline", "central").attr("fill", e.theme.headerColor).text(level2);
-            /* if (e.fontSize && pp.attr("font-size", e.fontSize), e.labelGroupsAbc) {
-                const tt = String.fromCharCode("a".charCodeAt(0) + hh),
-                    o = n.append("text").attr("x", d + e.padding).attr("y", e.rowHeight / 2).attr("dominant-baseline", "central").attr("fill", e.theme.headerColor).text(`${t})`);
-                e.fontSize && o.attr("font-size", e.fontSize)
-            }
-            hh += 1 */
+          
         }) 
             
         d.forEach(((t, o) => {
@@ -346,7 +320,7 @@ class d {
             
             n.append("rect").attr("x", d).attr("y", 0 + 30).attr("width", g - d).attr("height", e.rowHeight).attr("fill", c).attr("opacity", 0.4);
             const p = n.append("text").attr("x", d + (g - d) / 2).attr("y", e.rowHeight / 2 + 30).attr("text-anchor", "middle").attr("dominant-baseline", "central").attr("fill", e.theme.headerColor).text(i.level1);
-            if (e.fontSize && p.attr("font-size", e.fontSize), e.labelGroupsAbc) {
+            if (e.fontSize && p.attr("font-size", e.fontSize-2), e.labelGroupsAbc) {
                 const t = String.fromCharCode("a".charCodeAt(0) + h),
                     o = n.append("text").attr("x", d + e.padding).attr("y", e.rowHeight / 2 + 30).attr("dominant-baseline", "central").attr("fill", e.theme.headerColor).text(`${t})`);
                 e.fontSize && o.attr("font-size", e.fontSize)
