@@ -29,10 +29,10 @@
   text-align: center;
 }
 
-/* svg {
-    width: 100% !important;
+svg {
+    width: 90% !important;
     margin: auto;
-} */
+}
 
 .left-align {
     text-align:justify;
