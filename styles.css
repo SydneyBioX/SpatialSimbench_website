@@ -72,7 +72,7 @@ body .page-columns {
     text-align: center !important;
     margin: auto;  
     justify-content: center;
-    /* padding: 40px;   */
+    padding: 40px;  
 }
 
 .caption-top {
