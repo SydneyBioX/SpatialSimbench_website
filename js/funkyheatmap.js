@@ -287,8 +287,9 @@ class d {
             } else {
                 // Update the endOffset to extend to cover the entire width of duplicates
                 const currentGroup = uniqueEntries.get(groupName);
-                currentGroup.ss = Math.min(currentGroup.ss, startOffset); // Update to minimum start offset
-                currentGroup.ee = Math.max(currentGroup.ee, endOffset);   // Update to maximum end offset
+                currentGroup.ee = endOffset;
+                //currentGroup.ss = Math.min(currentGroup.ss, startOffset); // Update to minimum start offset
+                //currentGroup.ee = Math.max(currentGroup.ee, endOffset);   // Update to maximum end offset
                 
             } 
         }) 

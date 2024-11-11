@@ -17,6 +17,10 @@
     padding-left: 50px;
     padding-right: 50px;
 }
+
+.level2 {
+    align-items: center;
+}
   
 .quarto-title-banner {
   height: 540px;
@@ -28,11 +32,6 @@
   justify-content: center;
   text-align: center;
 }
-
-/* svg {
-    width: 90% !important;
-    margin: auto;
-} */
 
 .left-align {
     padding-left: 50px;
@@ -57,6 +56,13 @@ svg {
     font-size: 6;
 }
 
+/* .ojs-in-a-box-waiting-for-module-import {
+    align-items: center;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+} */
+
 body .page-columns {
     display: inline !important;
     
@@ -65,7 +71,8 @@ body .page-columns {
 .level2 {
     text-align: center !important;
     margin: auto;  
-    padding: 40px;  
+    justify-content: center;
+    /* padding: 40px;   */
 }
 
 .caption-top {
