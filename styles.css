@@ -29,6 +29,11 @@
   text-align: center;
 }
 
+/* svg {
+    width: 100% !important;
+    margin: auto;
+} */
+
 .left-align {
     text-align:justify;
 }

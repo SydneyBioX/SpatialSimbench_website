@@ -320,7 +320,7 @@ class d {
             
             n.append("rect").attr("x", d).attr("y", 0 + 30).attr("width", g - d).attr("height", e.rowHeight).attr("fill", c).attr("opacity", 0.4);
             const p = n.append("text").attr("x", d + (g - d) / 2).attr("y", e.rowHeight / 2 + 30).attr("text-anchor", "middle").attr("dominant-baseline", "central").attr("fill", e.theme.headerColor).text(i.level1);
-            if (e.fontSize && p.attr("font-size", e.fontSize-2), e.labelGroupsAbc) {
+            if (e.fontSize && p.attr("font-size", e.fontSize-1), e.labelGroupsAbc) {
                 const t = String.fromCharCode("a".charCodeAt(0) + h),
                     o = n.append("text").attr("x", d + e.padding).attr("y", e.rowHeight / 2 + 30).attr("dominant-baseline", "central").attr("fill", e.theme.headerColor).text(`${t})`);
                 e.fontSize && o.attr("font-size", e.fontSize)
