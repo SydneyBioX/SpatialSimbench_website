@@ -29,12 +29,14 @@
   text-align: center;
 }
 
-svg {
+/* svg {
     width: 90% !important;
     margin: auto;
-}
+} */
 
 .left-align {
+    padding-left: 50px;
+    padding-right: 50px;
     text-align:justify;
 }
 
