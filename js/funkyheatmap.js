@@ -154,7 +154,7 @@ const n = {
         }
     },
     l = {
-        rowHeight: 35,
+        rowHeight: 40,
         padding: 5,
         geomPadding: 1.5,
         columnRotate: 30,
